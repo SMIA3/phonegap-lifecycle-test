@@ -10,7 +10,8 @@ function updateDisplay() { //create function updateDisplay
 	$("#launched").text("Application launched: " + launched_count); 
 	$("#resumed").text("Application paused: " + paused_count);
 	$("#paused").text("Application resumed: " + resumed_count);
-    $("#time").text("Application time running: " + time_count);
+    $("#launched").text("Application time running: " + time_count);
+    
 }
 
 
