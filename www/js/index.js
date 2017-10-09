@@ -1,9 +1,9 @@
-var paused_count =0; //Define paused_count
+var paused_count = 0; //Define paused_count
 var resumed_count = 0; //define resumed_count
 var launched_count = 0; //define launched_count
 var time_count = 0;
-var time_seconds = time_count % 60;
-var time_min = time_count / 60;
+var time_min = Math.floor(time_count / 60);
+var time_seconds = time_count - (time_min * 60);
 
 document.addEventListener("deviceready", onDeviceReady, false);// Event Listener - Check if App is loaded
 		
