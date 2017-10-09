@@ -2,15 +2,21 @@ var paused_count =0; //Define paused_count
 var resumed_count = 0; //define resumed_count
 var launched_count = 0; //define launched_count
 var time_count = 0;
+var time_seconds = time_count % 60;
+var time_min = time_count / 60;
 
 document.addEventListener("deviceready", onDeviceReady, false);// Event Listener - Check if App is loaded
 		
 	
 function updateDisplay() { //create function updateDisplay
-	$("#launched").text("Application launched: " + launched_count); 
+	//$("#launched").text("Application launched: " + launched_count); 
 	$("#resumed").text("Application paused: " + paused_count);
 	$("#paused").text("Application resumed: " + resumed_count);
-    $("#launched").text("Application time running: " + time_count);
+    if (time_count >= 60){
+        $("#launched").text("Application time running: " + time_min + "min " + time_seconds +"seconds");
+    } else {
+        $("#launched").text("Application time running: " + time_count + "seconds");
+    }
     
 }
 
@@ -23,7 +29,7 @@ function updateDisplay() { //create function updateDisplay
 	
 	launched_count++; // increase launched_count by 1
 	updateDisplay(); //Update display showing new launched_count
-    setInterval(function(){ time_count++;updateDisplay(); }, 1000);
+    setInterval(function(){time_count++;updateDisplay();}, 1000);
 	    
 	alert("device ready"); //Tell user state of device/app?
     }
